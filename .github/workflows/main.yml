@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - uses: actions/checkout@master
       - uses: actions/heroku@salockhart:migrating-example-to-yaml-syntax
       - name: login
         env:
