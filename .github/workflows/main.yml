@@ -14,3 +14,14 @@ jobs:
       run: |
         docker build . --file Dockerfile --tag python-app:$(date +%s),
         docker exec -it python-app python app/tests.py
+        
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/heroku@salockhart:migrating-example-to-yaml-syntax
+      - name: login
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        with:
+          args: container:login
