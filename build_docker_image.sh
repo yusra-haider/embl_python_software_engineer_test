@@ -1,7 +1,7 @@
 #!/bin/bash
 app="python-app"
 docker build -t ${app} .
-docker run -d -p 80:8000 \
+docker run -d -p 80:80 \
   --name=${app} \
   ${app}
 #running the tests
