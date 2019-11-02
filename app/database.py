@@ -4,10 +4,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Session
 
 
-engine = create_engine("mysql+pymysql://anonymous@ensembldb.ensembl.org/ensembl_website_97")
-Base = declarative_base()
-##Base = automap_base()
-
+engine = create_engine("mysql+pymysql://anonymous@ensembldb.ensembl.org/ensembl_website_97", pool_recycle=3600)
 session = Session(engine)
 
-
+Base = declarative_base()
+##Base = automap_base()
