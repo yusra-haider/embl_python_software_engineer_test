@@ -5,7 +5,8 @@ docker run -d -p 80:80 \
   --name=${app} \
   ${app}
 #running the tests
-docker exec -it ${app} python app/tests.py
+#docker exec -it ${app} python app/tests.py
+python app/tests.py
 if [ $? -ne 0 ]
 then
     echo "Tests failed"
