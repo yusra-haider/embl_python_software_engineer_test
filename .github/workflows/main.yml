@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Build and test the Docker image
       run: |
-        docker build --file Dockerfile --tag python-app:$(date +%s)
+        docker build --tag python-app:$(date +%s)
         docker exec -it python-app python app/tests.py
         
   deploy:
