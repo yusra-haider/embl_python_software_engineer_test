@@ -1,0 +1,44 @@
+name: Workflow for building, testing and deploying the FastApi app
+
+on:
+  pull_request:
+    branches: 
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions-hub/docker/cli@master
+    - name: Build and test the Docker image
+      run: |
+        docker build . --file Dockerfile --tag python-app:$(date +%s),
+        docker exec -it python-app python app/tests.py
+  
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/heroku@salockhart:migrating-example-to-yaml-syntax
+      - name: login
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        with:
+          args: container:login
+      
+      - uses: actions/heroku@salockhart:migrating-example-to-yaml-syntax
+      - name: push
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }} 
+        with:
+          args: container:push -a testpythonapp
+        
+      - uses: actions/heroku@salockhart:migrating-example-to-yaml-syntax
+      - name: deploy
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }} 
+        with: 
+          args: container:release -a testpythonapp web 
+          
