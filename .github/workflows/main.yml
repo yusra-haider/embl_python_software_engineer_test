@@ -12,7 +12,8 @@ jobs:
     steps:
     - name: Build and test the Docker image
       run: |
-        docker build --tag python-app:$(date +%s)
+        docker build --t python-app:$(date +%s)
+        docker run docker run -d -p 80:80 --name=python-app 
         docker exec -it python-app python app/tests.py
         
   deploy:
