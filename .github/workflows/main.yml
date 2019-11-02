@@ -20,7 +20,7 @@ jobs:
     
     steps:
       - name: login
-        uses: yusra-haider/heroku/update_to_yaml_format
+        uses: yusra-haider/heroku@update_to_yaml_format
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         with:
