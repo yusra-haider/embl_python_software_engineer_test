@@ -55,5 +55,6 @@ class GeneSearchEndPointTest(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    # add option for args here so that BASE_URL can be configured
     unittest.main(verbosity=2)
 
