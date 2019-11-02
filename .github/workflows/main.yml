@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/heroku@master
+      - uses: yusra-haider/heroku/update_to_yaml_format
       - name: login
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
