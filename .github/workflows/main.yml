@@ -6,14 +6,14 @@ on:
       - master
 
 jobs:
-#  test:
-#    runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-latest
 
-#    steps:
-#    - name: Build and test the Docker image
-#      run: |
-#        docker build . --file Dockerfile --tag python-app:$(date +%s),
-#        docker exec -it python-app python app/tests.py
+    steps:
+    - name: Build and test the Docker image
+      run: |
+        docker build . --file Dockerfile --tag python-app:$(date +%s),
+        docker exec -it python-app python app/tests.py
         
   deploy:
     runs-on: ubuntu-latest
@@ -26,3 +26,16 @@ jobs:
         with:
           args: container:login
  
+      - name: push
+        uses: actions/heroku@master
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }} 
+        with:
+          args: container:push -a yusrapythonapp
+      
+      - name: deploy
+        uses: actions/heroku@master
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }} 
+        with: 
+          args: container:release -a yusrapythonapp web 
