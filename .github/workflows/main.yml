@@ -20,9 +20,7 @@ jobs:
     
     steps:
       - uses: actions/checkout@heroku@salockhart:migrating-example-to-yaml-syntax
-      - uses: actions/heroku@salockhart:migrating-example-to-yaml-syntax
       - name: login
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        with:
-          args: container:login
+        run: | 
+          echo "successful"
+ 
