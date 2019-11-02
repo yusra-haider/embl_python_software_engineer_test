@@ -21,3 +21,4 @@ def gene_search(name: str = Query(..., min_length = 3), species: str = None, lim
 
 
 
+
