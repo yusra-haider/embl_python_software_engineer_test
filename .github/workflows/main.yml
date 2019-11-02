@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions-hub/docker/cli@master
     - name: Build and test the Docker image
       run: |
         docker build . --file Dockerfile --tag python-app:$(date +%s),
