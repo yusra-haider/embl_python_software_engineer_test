@@ -16,7 +16,7 @@ jobs:
     - name: Build and test the Docker image
       run: |
         docker build . -f Dockerfile -t python-app
-        docker run docker run -d -p 80:80 --name=python-app python-app
+        docker run -d -p 80:80 --name=python-app python-app
         docker exec -it python-app python app/tests.py
    
   deploy:
