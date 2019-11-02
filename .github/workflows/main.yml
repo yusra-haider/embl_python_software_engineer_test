@@ -10,9 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@master
+      with:
+        ref: ${{ github.ref }}
     - name: Build and test the Docker image
       run: |
-        docker build -f Dockerfile -t python-app:$(date +%s) .
+        docker build . -f Dockerfile -t python-app
         docker run docker run -d -p 80:80 --name=python-app 
         docker exec -it python-app python app/tests.py
         
