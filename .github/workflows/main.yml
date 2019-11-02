@@ -16,6 +16,7 @@ jobs:
         docker exec -it python-app python app/tests.py
         
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     
     steps:
