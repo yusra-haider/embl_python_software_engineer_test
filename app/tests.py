@@ -79,3 +79,11 @@ if __name__ == '__main__':
     WEB_SERVER_URL = args.address if args.address else "http://0.0.0.0:80"
     unittest.main(verbosity=2)
 
+
+# note for self: the tests were  intermittently resulting in `requests.exceptions.ConnectionError: HTTPConnectionPool
+# (host='0.0.0.0', port=80), max retries exceeded, Failed to establish a new connection: [Errno 111]
+# Connection refused')` errors when executed.
+# This could be because of the currently ongoing connectivity issues in the region
+# Also,this GitHub thread https://github.com/docker/for-linux/issues/466 suggests that docker exec
+# is significantly slower as opposed to directly running commands inside the container
+# I can not determine the cause for this issue unless the connectivity issue gets resolved
