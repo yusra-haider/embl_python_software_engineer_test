@@ -24,9 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@master
-        with:
-          ref: ${{ github.ref }} 
       - name: login
         uses: actions/heroku@master
         env:
@@ -34,6 +31,9 @@ jobs:
         with:
           args: container:login
  
+      - uses: actions/checkout@master
+        with:
+          ref: ${{ github.ref }}
       - name: push
         uses: actions/heroku@master
         env:
