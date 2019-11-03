@@ -30,7 +30,9 @@ as first argument and the heroku app name as the second one. Sample usages:
 `build_test_deploy_docker_to_heroku.sh yes <heroku_app_name>` (testing enabled) and 
 `build_test_deploy_docker_to_heroku.sh no <heroku_app_name>` (without testing)
 
-Setting up a CI/CD pipeline with GitHub actions is in progress on [this](https://github.com/yusra-haider/embl_python_software_engineer_test/tree/setting_up_github_actions)
+The repository is currently connected to Travis CI, and has the CI / CD pipeline in place. Tests are executed and if successful, the app is deployed to Heroku as a docker container. Currently, builds get executed on every pushed change and on every pull request.
+ 
+Experimenting a CI/CD set up with GitHub actions is in progress on [this](https://github.com/yusra-haider/embl_python_software_engineer_test/tree/setting_up_github_actions)
 branch
 
 ##### Instructions for running the app inside vagrant, using [this](https://github.com/joanmarcriera/vagrant-file) vagrant file:
