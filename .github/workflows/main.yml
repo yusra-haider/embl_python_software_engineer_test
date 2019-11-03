@@ -31,9 +31,6 @@ jobs:
         with:
           args: container:login
  
-      - uses: actions/checkout@master
-        with:
-          ref: ${{ github.ref }}
       - name: push
         uses: actions/heroku@master
         env:
