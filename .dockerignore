@@ -1,0 +1,6 @@
+.dockerignore
+Dockerfile
+build_docker_image.sh
+deploy_docker_to_heroku.sh
+build_test_deploy_docker_to_heroku.sh
+__pycache__
