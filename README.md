@@ -33,7 +33,7 @@ as first argument and the heroku app name as the second one. Sample usages:
 Setting up a CI/CD pipeline with GitHub actions is in progress on [this](https://github.com/yusra-haider/embl_python_software_engineer_test/tree/setting_up_github_actions)
 branch
 
-#####Instructions for running the app inside vagrant, using [this](https://github.com/joanmarcriera/vagrant-file) vagrant file:
+##### Instructions for running the app inside vagrant, using [this](https://github.com/joanmarcriera/vagrant-file) vagrant file:
 
 ```
 $ git clone https://github.com/yusra-haider/embl_python_software_engineer_test.git
@@ -41,7 +41,8 @@ $ cd embl_python_software_engineer_test.git
 $ ./build_docker_image yes
 ```
 
-This should get the docker container up and running inside vagrant. Access the app via `localhost:8080`.
+This should get the docker container up and running inside vagrant. Access the app via `localhost:8080`, and the documentation
+via `localhost:8080/docs`
 A sample usage of the endpoint would look like 
 `http://localhost:8080/gene_search/?name=abc&species=amphilophus_citrinellus`
 
