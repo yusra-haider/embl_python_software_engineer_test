@@ -7,7 +7,6 @@ import requests
 VALIDATION_ERROR = 400
 SUCCESS = 200
 INVALID_REQUEST_METHOD = 405
-# this is the url on which the server runs inside docker
 BASE_URL = "http://0.0.0.0:80"
 
 
